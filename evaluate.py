@@ -10,6 +10,6 @@ def evaluate(number, passwords):
 			48:response.index("revisit-after") - 17]
 		title = response[response.index("<title>") + \
 			7:response.index(" | Zero Hedge")]
-		newThread = threading.Thread(target=attempt, args=([number, username, title, passwords]))
+		newThread = threading.Thread(target=attempt, args=(number, username, title, passwords))
 		newThread.start()
 	except Exception as error: pass
