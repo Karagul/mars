@@ -1,4 +1,4 @@
-# Zero Hedge Account Parser (ZHAP)
+# Multithreaded Account Retrieval System (MARS)
 
 Multithreaded account retrieval system for Zero Hedge.
 
@@ -6,4 +6,4 @@ Multithreaded account retrieval system for Zero Hedge.
 
 Change the `passwords.txt` file to the desired configuration, and use:
 
-`python parser.py`
+`python mars.py`
