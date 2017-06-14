@@ -11,7 +11,8 @@ def attempt(entry, passwords):
 			if "/user/password" not in response:
 				sys.stdout.write(str(entry[0]) + \
 					space("number", len(str(entry[0]))) + entry[1] + \
-					space("username", len(entry[1])) + item + "\n")
+					space("username", len(entry[1])) + entry[2] + \
+					space("title", len(entry[2])) + item + "\n")
 				sys.stdout.flush()
 				exit()
 	except Exception as error: time.sleep(1)

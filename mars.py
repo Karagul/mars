@@ -2,7 +2,8 @@ import sys
 from evaluate import *
 
 def main(passwords):
-	sys.stdout.write("Number  Username                        Password\n")
+	sys.stdout.write("Number  Username                        Title" + \
+		"                           Password\n")
 	number = 0
 	while True:
 		evaluate(number, passwords)
