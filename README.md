@@ -4,7 +4,7 @@ Multithreaded account retrieval system for Zero Hedge.
 
 ## About
 
-This program exploits some major deficiencies in the user account protocol of Zero Hedge, a financial news web site.
+This program exploits some major deficiencies in the user account protocol of Zero Hedge, a financial news web site, in order to retrieve account information.
 
 Zero Hedge user accounts are given a specific identification number when they are created. This number system is based on the chronology of account creation.
 
