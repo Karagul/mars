@@ -6,7 +6,7 @@ Multithreaded account retrieval system for Zero Hedge.
 
 This program exploits some major deficiencies in the user account protocol of Zero Hedge, a financial news web site, in order to retrieve account information.
 
-Zero Hedge user accounts are given specific identification numbers when they are created. This number system is based on the chronology of account creation.
+Zero Hedge user accounts are given specific identification numbers when they are created. This number system is based on the number of accounts that have been created.
 
 In addition to this, the login form has no form of protection against robots. This allows for retrieval of accounts in order of their creation using a password list.
 
