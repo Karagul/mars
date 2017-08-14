@@ -10,7 +10,7 @@ Zero Hedge user accounts are given specific identification numbers when they are
 
 In addition to this, the login form has no form of protection against robots. This allows for retrieval of accounts in order of their creation using a password list.
 
-This program sends login requests to user 0 and increments the user identification number, trying each password in `passwords.txt` as it goes.
+This program sends login requests to user `0` and increments the user identification number, trying each password in `passwords.txt` as it goes.
 
 Although the Zero Hedge front-end is wanting in some form of protection against robots, their back-end does have a limit for requests per time, probably for protection against denial-of-service attacks.
 
