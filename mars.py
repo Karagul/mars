@@ -14,7 +14,7 @@ if __name__ == "__main__":
 		file = open("passwords.txt", "r")
 		passwords = file.read().split("\n")[:-1]
 		main(passwords)
-	except KeyboardInterrupt: sys.stdout.write("\nInterrupted.\n\n")
+	except KeyboardInterrupt: sys.stdout.write("\nInterrupted.\n")
 	except Exception as error:
-		sys.stdout.write("An error occurred: " + str(error) + "\n")
+		sys.stdout.write("\nAn error occurred: " + str(error) + "\n")
 	finally: file.close()
