@@ -4,12 +4,8 @@ import threading
 import time
 
 def output(entry):
-	number = 0
-
-	for item in entry:
-		sys.stdout.write(item + " " * ([8, 32, 32, 8][number] - len(item)))
-
-		number += 1
+	for i in range(len(entry)):
+		sys.stdout.write(entry[i] + " " * ([8, 32, 32, 8][i] - len(entry[i])))
 
 	sys.stdout.write("\n")
 
