@@ -76,7 +76,7 @@ if __name__ == "__main__":
 	try:
 		file = open("passwords.txt", "r")
 
-		passwords = file.read().split("\n")[:-1]
+		passwords = filter(None, file.read().split("\n"))
 
 		main(passwords)
 
