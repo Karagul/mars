@@ -1,4 +1,4 @@
-# Multithreaded Account Retrieval System (MARS)
+# Multithreaded Account Retrieval System
 
 Multithreaded account retrieval system for Zero Hedge.
 
