@@ -41,13 +41,11 @@ def evaluate(number):
 # request information from the user page to fill the entry
 
 		if "Page Not Found" not in response:
-			entry.append(response[response.index("canonical") + \
-				48:response.index("og:url") - 21])
+			entry.append(response[response.index("canonical") + 48:response.index("og:url") - 21])
 #
 # append the username to the entry
 
-			entry.append(response[response.index("<title>") + \
-				7:response.index(" | Zero Hedge")])
+			entry.append(response[response.index("<title>") + 7:response.index(" | Zero Hedge")])
 #
 # append the title to the entry
 
